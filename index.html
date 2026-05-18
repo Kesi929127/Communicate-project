@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기전여고 직접 말하세요</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="logo">
+    <h1 class="title">기전여고</h1>
+    <h1 class="title">직접 전하세요</h1>
+    </div>
+
+    <div class="post-box">
+
+        <div class="profile-wrap">
+            <div class="profile" id="profile-display" onclick="openSheet()"></div>
+            <input type="file" id="profile-upload" accept="image/*" onchange="updateProfile(this)">
+        </div>
+
+        <div class="post-content">
+            <textarea placeholder="무슨일이잇는지안궁금한데일단말해봐"></textarea>
+            <button id="post-btn">게시</button>
+        </div>
+    </div>
+    <dialog id="profile-sheet">
+        <div class="sheet-content">
+            <div class="sheet-group">
+                <button onclick="document.getElementById('profile-upload').click(; closeSheet();)">사진 변경
+                <button class="delete" onclick="deletPhoto()">사진 삭제</button>
+                </button>
+        </div>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
