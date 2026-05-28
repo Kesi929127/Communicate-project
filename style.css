@@ -182,7 +182,7 @@ dialog[open] {
 #post-btn {
     align-self: flex-end;
 
-    margin-top: auto;
+    margin-top: 15px;
 
     padding: 8px 18px;
 
@@ -255,4 +255,24 @@ body,
     transition: background-color 0.3s ease,
     color 0.3s ease,
     border-color 0.3s ease;
+}
+.feed-right{
+    display: flex;
+    flex-direction: column;
+}
+.feed-nickname {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #444;
+}
+.nickname-input {
+    border: none;
+    outline: none;
+    background : transparent;
+    font-size: 15px;
+    width: 100%;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
 }

@@ -20,12 +20,15 @@
 
     <div class="post-box">
 
+        <div></div>
+
         <div class="profile-wrap">
             <div class="profile" id="profile-display" onclick="openSheet()"></div>
             <input type="file" id="profile-upload" accept="image/*" onchange="updateProfile(this)">
         </div>
 
         <div class="post-content">
+            <input type="text" class="nickname-input" placeholder="너의 이름은?">
             <textarea placeholder="무슨일이잇는지안궁금한데일단말해봐"></textarea>
             <button id="post-btn">게시</button>
         </div>

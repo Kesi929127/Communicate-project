@@ -108,11 +108,16 @@ function renderFeeds() {
             profileDiv.style.backgroundImage = feed.profile;
         }
 
+        const nicknameDiv = document.createElement('div');
+        nicknameDiv.className = 'feed-nickname';
+        nicknameDiv.textContent = feed.nickname || "익명";
+
         const contentDiv = document.createElement('div');
         contentDiv.className = 'feed-content';
         contentDiv.textContent = feed.text;
 
         feedDiv.appendChild(profileDiv);
+        feedDiv.appendChild(nicknameDiv);
         feedDiv.appendChild(contentDiv);
         feedList.appendChild(feedDiv);
     });
@@ -120,6 +125,7 @@ function renderFeeds() {
 
 const postBtn = document.getElementById('post-btn');
 const textarea = document.querySelector('textarea');
+const nicknameInput = document.querySelector('.nickname-input');
 postBtn.disabled = true;
 const feedList = document.getElementById('feed-list');
 
@@ -128,27 +134,15 @@ postBtn.addEventListener('click', () => {
     if(content === "") return;
 
     const newFeed = {
+        nickname: nicknameInput.value.trim() || "익명",
         text: content,
-        profile: profileDisplay.style.backgroundImage
+        profile: profileDisplay.style.backgroundImage,
     };
 
     feeds.unshift(newFeed);
     localStorage.setItem('feeds', JSON.stringify(feeds));
     renderFeeds();
 
-    const feedDiv = document.createElement('div');
-    feedDiv.className = 'feed';
-
-    const profileDiv = document.createElement('div');
-    profileDiv.className = 'feed-profile';
-    profileDiv.style.backgroundImage = profileDisplay.style.backgroundImage;
-
-    const contentDiv = document.createElement('div');
-    contentDiv.className = 'feed-content';
-    contentDiv.textContent = content;
-
-    feedDiv.appendChild(profileDiv);
-    feedDiv.appendChild(contentDiv);
     textarea.value = '';
     postBtn.disabled = true;
 });
